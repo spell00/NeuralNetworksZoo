@@ -1,0 +1,30 @@
+"Stamina" is accumulated for each neuron. The output of a balanced ReLU* is used.
+*What is the balanced ReLU?
+Neurons that are not activated receive a penalty. This penalty is a constant (When it's not activated,
+           it is not always activated the same)
+               Note: I did try to treat the constant for the penalty for not being activated (to simulate how neurons
+               might be lost when not used enough (if it is not used, the cell is useless and the cell enter programmed
+               apoptosis; it is programmed to die).
+                   2 main problems:
+                       1- The constant is too small, so the neurons don't die or too slowly
+                       2- The constant is too high, so no neurons are left rapidely (or not enough to get good accuracy)
+           The goal is to remove neurons that are not used enough, based on the concept "use it or lose it", that I
+           consider to be the extension of hebb's theorem, which is about synaptic plasticity at the synapse level;
+           In my understanding, the concequence of hebb's rule at the cell level, which receives
+           (most probably) many inputs and its output, if the neuron is activated, the neuron is "consolidated";
+        
+           Other avenues not explored:
+           - Simulated Annlealing search for the "unactivation penalty" constant
+           - each neuron could be seen as having an a priori on how probable they will be activated;
+               -- Fow now, I only remove the neurons that are not activated enough (in the actual form, they might be
+                   kept if their activation returns large outputs, but not frequently)
+               -- However, I would also like to make it hard for neurons to get very large; not only it might be more
+                   biologically accurate (neurons of the same type have similar sizes;
+                   With hebbian layers, we will only permit cell with depleted stamina to die;
+                       --- But their is a need for discouraging large neurons (one way to motivate is Maximum Entropy;
+                            therefore, we would like to encourage the neurons to have the same Expected Values
+                           (not only probability, but how big the activation is also considered)
+                           (in other words, we want a uniform distribution for the expected output of all neurons of a
+                            layer; by removing the neurons that form the negative tail, and by discouraging going to
+                            the right tail (not definined how), it might encourage configurations where neurons will
+                            be closer to have uniform expected post-activation values)
