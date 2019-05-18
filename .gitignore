@@ -5,3 +5,4 @@ notebooks/semi_supervised_learning/.ipynb_checkpoints
 notebooks/deep_generative_models/.ipynb_checkpoints
 notebooks/classifiers/.ipynb_checkpoints
 logs
+notebooks/semi_supervised_learning/ssl_vae_geo_labelled_only.ipynb
