@@ -1,0 +1,7 @@
+**/logs
+*.log
+notebooks/.ipynb_checkpoints
+notebooks/semi_supervised_learning/.ipynb_checkpoints
+notebooks/deep_generative_models/.ipynb_checkpoints
+notebooks/classifiers/.ipynb_checkpoints
+logs
