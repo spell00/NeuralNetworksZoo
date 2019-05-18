@@ -7,7 +7,7 @@ from models.generative.autoencoders.autoencoder import AE
 
 from models.semi_supervised.deep_generative_models.layers.stochastic import GaussianSample, GumbelSoftmax, \
                                                                                     gaussian_mixture, swiss_roll
-from models.utils import log_gaussian, log_standard_gaussian
+from models.utils.distributions import log_gaussian, log_standard_gaussian
 from models.semi_supervised.deep_generative_models.layers.flow import NormalizingFlows, HouseholderFlow, ccLinIAF, SylvesterFlows
 from models.generative.autoencoders.vae.GatedConv import GatedConv2d, GatedConvTranspose2d
 import numpy as np
@@ -259,6 +259,7 @@ class ConvDecoder(nn.Module):
         self.unpooling_layers = unpooling_layers
         self.reconstruction = nn.Linear(4096, int(np.prod(self.input_shape)))
         self.reconstruction_bn = nn.BatchNorm1d(4096)
+
     def forward(self, x, y=torch.Tensor([]).cuda(), a=torch.Tensor([]).cuda()):
         x = torch.cat([x, y], dim=1)
         for i, (layer, bn) in enumerate(zip(self.hidden, self.bn)):

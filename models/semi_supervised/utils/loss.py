@@ -5,7 +5,7 @@ import numpy as np
 import torch
 import torch.nn as nn
 from torch.autograd import Variable
-from models.utils import log_gaussian, log_standard_gaussian, log_bernoulli
+from models.utils.distributions import log_gaussian, log_standard_gaussian, log_bernoulli
 import torch.nn.functional as F
 
 

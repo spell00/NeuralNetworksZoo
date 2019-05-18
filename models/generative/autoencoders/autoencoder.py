@@ -12,9 +12,9 @@ from models.utils.visual_evaluation import plot_histogram
 from scipy.special import logsumexp
 import torchvision as tv
 from torch.nn import functional as F
-from models.utils import log_gaussian, log_standard_gaussian
+from models.utils.distributions import log_gaussian, log_standard_gaussian
 from scipy.stats import norm
-from dimension_reduction.ordination import ordination2d
+from models.dimension_reduction.ordination import ordination2d
 import pandas as pd
 
 import torch.backends.cudnn as cudnn
